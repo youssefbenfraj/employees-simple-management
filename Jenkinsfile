@@ -13,17 +13,17 @@ pipeline{
       }
     stage('create network'){
       steps{
-              sh 'docker network create EmployeeNetwork3 || true'
+              sh 'docker network create EmployeeNetwork4 || true'
       }
     }
      stage('deploy spring'){
       steps {
-        sh 'docker run -d --network EmployeeNetwork3 -p 8080:8080 --name SpringEmployee3 spring-app'
+        sh 'docker run -d --network EmployeeNetwork3 -p 8080:8080 spring-app'
       }
     }
     stage('deploy angular'){
       steps{
-        sh ' docker run -d --network EmployeeNetwork3 -p 4200:80 --name AngularEmployee3 angular-app'
+        sh ' docker run -d --network EmployeeNetwork3 -p 4200:80 angular-app'
       }
     }
   }
