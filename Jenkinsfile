@@ -3,10 +3,10 @@ pipeline{
   stages{
     stage('delete old containers'){
       steps{
-        sh 'docker stop AirbusSpring || true'
-        sh 'docker rm AirbusSpring || true'
-        sh 'docker stop AirbusAngular || true'
-        sh 'docker rm AirbusAngular || true'
+        sh 'docker stop EmployeeSpring || true'
+        sh 'docker rm EmployeeSpring || true'
+        sh 'docker stop EmployeeAngular || true'
+        sh 'docker rm EmployeeAngular || true'
         sh 'docker network rm -f EmployeeNetwork || true'
       }
     }
