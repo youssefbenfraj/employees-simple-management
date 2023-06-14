@@ -13,13 +13,18 @@ pipeline{
       }
      stage('deploy spring'){
       steps {
-        sh 'docker run -d -p 8080:8080 --name SpringEmploy spring-app'
+        sh 'docker run -d --network EmployNetwork --name SpringEmploy1 spring-app'
       }
     }
     stage('deploy angular'){
       steps{
-        sh ' docker run -d -p 4200:80 --name AngularEmploy angular-app'
+        sh ' docker run -d --network EmployNetwork -p 4200:80 --name AngularEmploy1 angular-app'
       }
+    }
+  }
+  post {
+    always {
+      sh 'docker network create my-network || true'
     }
   }
 }
