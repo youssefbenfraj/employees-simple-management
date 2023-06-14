@@ -3,12 +3,12 @@ pipeline{
   stages{
     stage('build spring'){
       steps{
-        sh 'docker build -t spring-app ./frontend/'
+        sh 'docker build -t spring-app ./backend/'
       }
     } 
     stage('build angular'){
         steps{
-          sh 'docker build -t angular-app ./backend/'
+          sh 'docker build -t angular-app ./frontend/'
         }
       }
      stage('deploy spring'){
