@@ -18,7 +18,7 @@ pipeline{
     }
     stage('deploy angular'){
       steps{
-        sh ' docker run -d -p 4200:8080 --name AngularEmpl angular-app'
+        sh ' docker run -d -p 4200:80 --name AngularEmpl angular-app'
       }
     }
   }
