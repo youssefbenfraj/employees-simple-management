@@ -1,10 +1,5 @@
 pipeline{
   agent any
-  post {
-    always {
-      sh 'docker network create my-network || true'
-    }
-  }
   stages{
     stage('build spring'){
       steps{
@@ -16,6 +11,11 @@ pipeline{
           sh 'docker build -t angular-app ./frontend/'
         }
       }
+    stage('create network'){
+      steps{
+              sh 'docker network create EmployNetwork || true'
+      }
+    }
      stage('deploy spring'){
       steps {
         sh 'docker run -d --network EmployNetwork --name SpringEmploy1 spring-app'
