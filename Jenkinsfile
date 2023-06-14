@@ -13,12 +13,12 @@ pipeline{
       }
      stage('deploy spring'){
       steps {
-        sh 'docker run -d -p 8080:80 --name SpringEmpl spring-app'
+        sh 'docker run -d -p 8080:8080 --name SpringEmpl spring-app'
       }
     }
     stage('deploy angular'){
       steps{
-        sh ' docker run -d -p 4200:80 --name AngularEmpl angular-app'
+        sh ' docker run -d -p 4200:8080 --name AngularEmpl angular-app'
       }
     }
   }
