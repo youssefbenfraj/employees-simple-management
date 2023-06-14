@@ -1,7 +1,27 @@
+# Use a base image that includes Maven and Java
+FROM maven:3.8.4-openjdk-11-slim AS build
 
-FROM openjdk:11
-RUN mkdir -p /home/app
-ENV SPRING_PROFILES_ACTIVE=dev
-COPY . /home/app
-ENTRYPOINT ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "-jar", "/home/app/target/employee-simple-management.jar"]
+# Set the working directory inside the container
+WORKDIR /app
 
+# Copy the pom.xml file to the container
+COPY pom.xml .
+
+# Download the project dependencies
+RUN mvn dependency:go-offline
+
+# Copy the project source code to the container
+COPY src ./src
+
+# Build the application
+RUN mvn package -DskipTests
+
+# Use a lightweight base image for running the application
+FROM openjdk:11-jre-slim
+
+# Copy the JAR file from the build stage to the container
+COPY --from=build /app/target/*.jar /app.jar
+
+EXPOSE 8080
+# Specify the command to run your application
+CMD ["java", "-jar", "app.jar"]
