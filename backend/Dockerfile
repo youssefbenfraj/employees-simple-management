@@ -22,6 +22,6 @@ FROM openjdk:11-jre-slim
 # Copy the JAR file from the build stage to the container
 COPY --from=build /app/target/*.jar /app.jar
 
-EXPOSE 8080
+EXPOSE 9090
 # Specify the command to run your application
 CMD ["java", "-jar", "app.jar"]
