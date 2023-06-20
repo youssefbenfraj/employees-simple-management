@@ -27,7 +27,7 @@ pipeline{
     }
      stage('deploy spring'){
       steps {
-        sh 'docker run -d --network EmployeeNetwork -p 8080:8080 --name EmployeeSpring spring-app'
+        sh 'docker run -d --network EmployeeNetwork -p 9090:9090 --name EmployeeSpring spring-app'
       }
     }
     stage('deploy angular'){
