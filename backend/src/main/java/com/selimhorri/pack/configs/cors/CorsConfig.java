@@ -19,7 +19,7 @@ public class CorsConfig {
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://192.168.146.133:4200", "http://192.168.146.133:4200/"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://104.41.149.95:4200", "http://104.41.149.95:4200/"));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 															"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
 															"Access-Control-Request-Method", "Access-Control-Request-Headers"));
