@@ -13,7 +13,7 @@ pipeline{
       }
     stage('push images'){
       steps{
-         sh 'docker login --username $wetmonkey --password $dckr_pat_E1V-V2g2thDoYmkw8McxZnZSURg'
+         sh 'docker login --username $wetmonkey --password $hellsucks2000'
           sh 'docker push spring-app'
           sh 'docker push angular-app'
         
