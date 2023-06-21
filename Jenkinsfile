@@ -13,10 +13,10 @@ pipeline{
       }
     stage('push images'){
       steps{
-        withDockerRegistry(credentialsId: 'DHToken', url: 'https://index.docker.io/v1/') {
+         sh 'docker login --username $wetmonkey --password $dckr_pat_E1V-V2g2thDoYmkw8McxZnZSURg'
           sh 'docker push spring-app'
           sh 'docker push angular-app'
-        }
+        
       }
     }
     stage('Deployment AKS'){
