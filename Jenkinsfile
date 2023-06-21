@@ -13,7 +13,7 @@ pipeline{
       }
     stage('push images'){
       steps{
-        withDockerRegistry(credentialsId: 'f03b9f2f-ea10-4037-ae74-86ce29659d74', url: 'https://index.docker.io/v1/') {
+        withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
           sh 'docker push spring-app'
           sh 'docker push angular-app'
         }
