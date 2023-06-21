@@ -3,19 +3,19 @@ pipeline{
   stages{
     stage('build spring'){
       steps{
-        sh 'docker build -t spring-app ./backend/'
+        sh 'docker build -t spring-app-WM ./backend/'
       }
     } 
     stage('build angular'){
         steps{
-          sh 'docker build -t angular-app ./frontend/'
+          sh 'docker build -t angular-app-WM ./frontend/'
         }
       }
     stage('push images'){
       steps{
         withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
-          sh 'docker push wetmonkey/spring-app'
-          sh 'docker push wetmonkey/angular-app'
+          sh 'docker push spring-app-WM'
+          sh 'docker push angular-app-WM'
         }
       }
     }
