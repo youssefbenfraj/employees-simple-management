@@ -20,7 +20,7 @@ spec:
         - name: EmployeeSpring
           image: spring-app
           ports:
-          - containerPort: 8080
+          - containerPort: 9090
 ---
 kind: Service
 apiVersion: v1
@@ -34,4 +34,3 @@ spec:
     port: 80
     targetPort: 4200
   type: LoadBalancer
-
