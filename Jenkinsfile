@@ -17,8 +17,10 @@ pipeline{
           // Authenticate with ACR using the credentials
           sh 'docker login jenkinsemployeeacr.azurecr.io --username $ACR_USERNAME --password $ACR_PASSWORD'
 
-          sh 'docker push spring-app'
-          sh 'docker push angular-app'
+           sh 'docker tag angular-app wetmonkey/spring-app'
+           sh 'docker tag angular-app wetmonkey/angular-app'
+          sh 'docker push wetmonkey/spring-app'
+          sh 'docker push wetmonkey/angular-app'
         }
       }
     }
