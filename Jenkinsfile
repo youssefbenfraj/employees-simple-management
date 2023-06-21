@@ -13,7 +13,10 @@ pipeline{
       }
     stage('push images'){
       steps{
-        withDockerRegistry(credentialsId: 'DHToken', url: 'https://index.docker.io/v1/') {
+         withCredentials([usernamePassword(credentialsId: 'ACR', usernameVariable: 'ACR_USERNAME', passwordVariable: 'ACR_PASSWORD')]) {
+          // Authenticate with ACR using the credentials
+          sh 'docker login jenkinsemployeeacr.azurecr.io --username $ACR_USERNAME --password $ACR_PASSWORD'
+
           sh 'docker push spring-app'
           sh 'docker push angular-app'
         }
