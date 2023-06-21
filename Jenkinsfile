@@ -1,38 +1,22 @@
 pipeline{
   agent any
   stages{
-    stage('delete old containers'){
-      steps{
-        sh 'docker stop EmployeeSpring || true'
-        sh 'docker rm EmployeeSpring || true'
-        sh 'docker stop EmployeeAngular || true'
-        sh 'docker rm EmployeeAngular || true'
-        sh 'docker network rm -f EmployeeNetwork || true'
-      }
-    }
     stage('build spring'){
       steps{
         sh 'docker build -t spring-app ./backend/'
+        sh 'docker push spring-app:latest'
       }
     } 
     stage('build angular'){
         steps{
           sh 'docker build -t angular-app ./frontend/'
+          sh 'docker push angular-app:latest'
         }
       }
-    stage('create network'){
+    stage('Deployment AKS'){
       steps{
-              sh 'docker network create EmployeeNetwork || true'
-      }
-    }
-     stage('deploy spring'){
-      steps {
-        sh 'docker run -d --network EmployeeNetwork -p 9090:9090 --name EmployeeSpring spring-app'
-      }
-    }
-    stage('deploy angular'){
-      steps{
-        sh ' docker run -d --network EmployeeNetwork -p 4200:80 --name EmployeeAngular angular-app'
+          withCredentials([kubeconfigFile(credentialsId: 'K8S', variable: 'KUBECONFIG')]) {
+          sh 'kubectl --kubeconfig=$KUBECONFIG apply -f path/to/deployment.yaml'}
       }
     }
   }
