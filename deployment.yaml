@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
         - name: EmployeeAngular
-          image: angular-app
+          image: wetmonkey/angular-app
           ports:
             - containerPort: 4200
         - name: EmployeeSpring
-          image: spring-app
+          image: wetmonkey/spring-app
           ports:
           - containerPort: 9090
 ---
