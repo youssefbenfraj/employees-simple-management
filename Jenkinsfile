@@ -3,19 +3,19 @@ pipeline{
   stages{
     stage('build spring'){
       steps{
-        sh 'docker build -t employeemonkeyspring ./backend/'
+        sh 'docker build -t spring-app ./backend/'
       }
     } 
     stage('build angular'){
         steps{
-          sh 'docker build -t employeemonkeyangular ./frontend/'
+          sh 'docker build -t angular-app ./frontend/'
         }
       }
     stage('push images'){
       steps{
         withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') {
-          sh 'docker push employeemonkeyspring'
-          sh 'docker push employeemonkeyangular'
+          sh 'docker push spring-app'
+          sh 'docker push angular-app'
         }
       }
     }
