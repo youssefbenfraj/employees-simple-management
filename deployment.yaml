@@ -18,15 +18,15 @@ spec:
           ports:
             - containerPort: 4200
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: angular-service
 spec:
   selector:
     app: Employee
   ports:
-  - protocol: TCP
-    port: 80
+  - port: 80
+    protocol: TCP
     targetport: 4200
   type: LoadBalancer
