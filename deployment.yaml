@@ -17,10 +17,6 @@ spec:
           image: wetmonkey/angular-app
           ports:
             - containerPort: 4200
-        - name: employeespring
-          image: wetmonkey/spring-app
-          ports:
-          - containerPort: 9090
 ---
 kind: Service
 apiVersion: v1
