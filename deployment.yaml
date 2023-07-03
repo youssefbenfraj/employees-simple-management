@@ -28,5 +28,4 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetport: 4200
   type: LoadBalancer
