@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: employeeangular
-          image: wetmonkey/angular-app
+          image: wetmonkey/angular-app:latest
           ports:
             - containerPort: 4200
 ---
