@@ -11,6 +11,14 @@ pipeline{
           sh 'docker build -t angular-app ./frontend/'
         }
       }
+    stage('push to hub'){
+      steps{
+            sh 'docker tag angular-app wetmonkey/spring-app'
+           sh 'docker tag angular-app wetmonkey/angular-app'
+          sh 'docker push wetmonkey/spring-app'
+          sh 'docker push wetmonkey/angular-app'
+      }
+    }
     stage('Deployment AKS'){
       steps{
       
