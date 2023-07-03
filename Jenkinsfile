@@ -13,8 +13,9 @@ pipeline{
       }
     stage('Deployment AKS'){
       steps{
-           withCredentials([file(credentialsId: 'K8S', variable: 'KUBECONFIG')]) {
-          sh 'kubectl apply -f deployment.yaml --kubeconfig=$KUBECONFIG'}
+      
+         withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+         sh ('kubectl apply -f deployment.yaml')
       }
     }
   }
