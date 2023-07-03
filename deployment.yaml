@@ -27,6 +27,5 @@ spec:
     app: Employee
   ports:
   - protocol: TCP
-    port: 9090
-    targetPort: 4200
+    port: 4200
   type: LoadBalancer
