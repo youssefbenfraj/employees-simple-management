@@ -13,10 +13,12 @@ pipeline{
       }
     stage('push to hub'){
       steps{
+                withDockerRegistry(credentialsId: 'DHToken', url: 'https://index.docker.io/v1/') {
             sh 'docker tag angular-app wetmonkey/spring-app'
            sh 'docker tag angular-app wetmonkey/angular-app'
-          sh 'docker push wetmonkey/spring-app'
-          sh 'docker push wetmonkey/angular-app'
+          sh 'docker push wetmonkey/spring-app:latest'
+          sh 'docker push wetmonkey/angular-app:latest'
+                }
       }
     }
     stage('Deployment AKS'){
