@@ -18,7 +18,7 @@ spec:
           ports:
             - containerPort: 4200
         - name: employeespring
-          image: wetmonkey/angular-app:latest
+          image: wetmonkey/spring-app:latest
           ports:
             - containerPort: 9090
 ---
