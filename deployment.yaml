@@ -58,5 +58,5 @@ spec:
   selector:
     app: Employeeback
   ports:
-  - port: 9090
+  - port: 8080
   type: LoadBalancer
