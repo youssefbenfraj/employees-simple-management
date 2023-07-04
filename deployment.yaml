@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: employeeangular
-          image: wetmonkey/angular-app-AKS:latest
+          image: wetmonkey/angular-app-aks:latest
           ports:
             - containerPort: 4200
 ---
@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: employeespring
-          image: wetmonkey/spring-app-AKS:latest
+          image: wetmonkey/spring-app-aks:latest
           ports:
             - containerPort: 9090
 ---
