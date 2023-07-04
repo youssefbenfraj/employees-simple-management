@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: deploymentfront
 spec:
   selector:
     matchLabels:
@@ -17,6 +17,22 @@ spec:
           image: wetmonkey/angular-app:latest
           ports:
             - containerPort: 4200
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploymentback
+spec:
+  selector:
+    matchLabels:
+      app: Employee
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: Employee
+    spec:
+      containers:
         - name: employeespring
           image: wetmonkey/spring-app:latest
           ports:
