@@ -46,9 +46,9 @@ spec:
   selector:
     app: Employeefront
   ports:
-  - port: 80
+  - protocol: TCP
+    port: 80
     targetport: 4200
-    protocol: TCP
   type: LoadBalancer
 ---
 apiVersion: v1
