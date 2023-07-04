@@ -15,7 +15,6 @@ spec:
       containers:
         - name: employeeangular
           image: wetmonkey/angular-app:latest
-          imagePullPolicy: Always
           ports:
             - containerPort: 4200
 ---
@@ -36,7 +35,6 @@ spec:
       containers:
         - name: employeespring
           image: wetmonkey/spring-app:latest
-          imagePullPolicy: Always
           ports:
             - containerPort: 9090
 ---
