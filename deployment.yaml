@@ -51,3 +51,14 @@ spec:
   - port: 80
     protocol: TCP
   type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-service
+spec:
+  selector:
+    app: Employee
+  ports:
+  - clusterIP: 10.0.110.10
+  type: ClusterIP
