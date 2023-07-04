@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: Employeefront
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -26,7 +26,7 @@ spec:
   selector:
     matchLabels:
       app: Employeeback
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
