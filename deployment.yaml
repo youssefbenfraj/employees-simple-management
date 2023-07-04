@@ -48,7 +48,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetport: 4200
+    targetPort: 4200
   type: LoadBalancer
 ---
 apiVersion: v1
