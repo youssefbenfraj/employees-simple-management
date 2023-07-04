@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: Employee
+      app: Employeefront
   replicas: 1
   template:
     metadata:
       labels:
-        app: Employee
+        app: Employeefront
     spec:
       containers:
         - name: employeeangular
@@ -25,12 +25,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: Employee
+      app: Employeeback
   replicas: 1
   template:
     metadata:
       labels:
-        app: Employee
+        app: Employeeback
     spec:
       containers:
         - name: employeespring
@@ -44,7 +44,7 @@ metadata:
   name: angular-service
 spec:
   selector:
-    app: Employee
+    app: Employeefront
   ports:
   - port: 80
     protocol: TCP
@@ -56,7 +56,7 @@ metadata:
   name: spring-service
 spec:
   selector:
-    app: Employee
+    app: Employeeback
   clusterIP: 10.0.110.10
   ports:
   - port: 9090
