@@ -16,7 +16,7 @@ export class EmployeeService {
   }
   
   public findAll(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.apiServerUrl + "/employees");
+    return this.http.get<Employee[]>("http://10.0.110.10:9090/app/api" + "/employees");
   }
   
   public findById(employeeId: number): Observable<Employee> {
