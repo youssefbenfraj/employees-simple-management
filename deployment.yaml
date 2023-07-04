@@ -57,7 +57,6 @@ metadata:
 spec:
   selector:
     app: Employeeback
-  clusterIP: 10.0.110.10
   ports:
   - port: 9090
-  type: ClusterIP
+  type: LoadBalancer
