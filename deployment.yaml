@@ -47,6 +47,7 @@ spec:
     app: Employeefront
   ports:
   - port: 80
+    targetport: 4200
     protocol: TCP
   type: LoadBalancer
 ---
