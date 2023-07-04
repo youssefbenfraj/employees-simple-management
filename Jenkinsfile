@@ -4,12 +4,12 @@ pipeline{
     stage('push to hub'){
       steps{
                 withDockerRegistry(credentialsId: 'DHToken', url: 'https://index.docker.io/v1/') {
-                   sh 'docker build -t angular-app-aks ./frontend/'
-                  sh 'docker build -t spring-app-aks ./backend/'
-            sh 'docker tag angular-app wetmonkey/spring-app-aks'
-           sh 'docker tag angular-app wetmonkey/angular-app-aks'
-          sh 'docker push wetmonkey/spring-app-aks:latest'
-          sh 'docker push wetmonkey/angular-app-aks:latest'
+                   sh 'docker build -t angular-app-ak ./frontend/'
+                  sh 'docker build -t spring-app-ak ./backend/'
+            sh 'docker tag angular-app wetmonkey/spring-app-ak'
+           sh 'docker tag angular-app wetmonkey/angular-app-ak'
+          sh 'docker push wetmonkey/spring-app-ak:latest'
+          sh 'docker push wetmonkey/angular-app-ak:latest'
                 }
       }
     }
