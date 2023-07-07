@@ -19,7 +19,7 @@ public class CorsConfig {
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://10.0.110.10:80", "http://10.0.110.10:80/"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://angular-service:80", "http://angular-service:80/"));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 															"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
 															"Access-Control-Request-Method", "Access-Control-Request-Headers"));
